@@ -16,5 +16,4 @@ search_box.send_keys("¿Es Google hoy día, después de la aparición de ChatGPT
 search_box.send_keys(Keys.RETURN)  # Simula presionar "Enter"
 
 # Esperar un poco
-time.sleep(20
-           )
+time.sleep(20)
