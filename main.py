@@ -15,5 +15,9 @@ search_box = driver.find_element(By.NAME, "q")
 search_box.send_keys("¿Es Google hoy día, después de la aparición de ChatGPT, las nuevas páginas amarillas?")
 search_box.send_keys(Keys.RETURN)  # Simula presionar "Enter"
 
+time.sleep(3)  # Esperar un poco
+
+driver.maximize_window()
+
 # Esperar un poco
 time.sleep(25)
