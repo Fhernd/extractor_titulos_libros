@@ -1,5 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import time
 
@@ -43,7 +45,10 @@ password_field.send_keys('12345678')
 time.sleep(2)
 
 # Encuentra el botón de tipo 'submit' y que tiene el texto 'Continue':
-submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text()='Continue']")
+
+submit_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, "//button[@type='submit' and text()='Continue']"))
+)
 
 submit_button.click()
 
