@@ -42,14 +42,9 @@ time.sleep(2)
 password_field = driver.find_element(By.NAME, 'password')
 password_field.send_keys('12345678')
 
+password_field.send_keys(Keys.RETURN)
+
 time.sleep(2)
 
-# Encuentra el botón de tipo 'submit' y que tiene el texto 'Continue':
-
-submit_button = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, "//button[@type='submit' and text()='Continue']"))
-)
-
-submit_button.click()
 
 time.sleep(100)
