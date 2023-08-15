@@ -33,4 +33,18 @@ username_field.send_keys('will.i.am@mail.co')
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text()='Continue']")
 submit_button.click()
 
-time.sleep(10000000)
+# Espera 3 segundos:
+time.sleep(2)
+
+# Encuentra el input que tiene name "password" y escribe esta cadena: "12345678":
+password_field = driver.find_element(By.NAME, 'password')
+password_field.send_keys('12345678')
+
+time.sleep(2)
+
+# Encuentra el botón de tipo 'submit' y que tiene el texto 'Continue':
+submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text()='Continue']")
+
+submit_button.click()
+
+time.sleep(100)
