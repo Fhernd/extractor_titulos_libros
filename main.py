@@ -5,10 +5,32 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get('https://chat.openai.com/')
+driver.get('https://chat.openai.com/auth/login')
 
-time.sleep(5)
+time.sleep(3)
 
-driver.find_element(By.XPATH, '//button[text()="Log in"]').click()
+try:
+    # Encuentra el botón que tiene un div (hijo) con las clases "flex w-full gap-2 items-center justify-center" y el texto 'Log in':
+    login_button = driver.find_element(By.XPATH, "//button[div[contains(@class, 'flex w-full gap-2 items-center justify-center') and text()='Log in']]")
 
-time.sleep(20)
+    # Click en el botón de login:
+    login_button.click()
+except:
+    print('No se pudo encontrar el botón de login')
+    
+    login_button = driver.find_element(By.XPATH, "//button[contains(@class, 'relative flex h-12 items-center justify-center rounded-md text-center text-base font-medium bg-[#3C46FF] text-[#fff] hover:bg-[#0000FF]')]")
+    
+    login_button.click()
+
+
+time.sleep(3)
+
+# Encuentra el campo que tiene el name 'username' y escribe esta cadena: 'will.i.am@mail.co':
+username_field = driver.find_element(By.NAME, 'username')
+username_field.send_keys('will.i.am@mail.co')
+
+# Ahora presiona el botón de tipo 'submit' y que tiene el texto 'Continue':
+submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text()='Continue']")
+submit_button.click()
+
+time.sleep(10000000)
