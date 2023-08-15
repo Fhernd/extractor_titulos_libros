@@ -1,9 +1,21 @@
+import os
+import time
+
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-import time
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+EMAIL = os.environ.get('EMAIL')
+PASSWORD = os.environ.get('PASSWORD')
+
+print(EMAIL)
+print(PASSWORD)
 
 driver = webdriver.Chrome()
 
@@ -29,7 +41,7 @@ time.sleep(3)
 
 # Encuentra el campo que tiene el name 'username' y escribe esta cadena: 'will.i.am@mail.co':
 username_field = driver.find_element(By.NAME, 'username')
-username_field.send_keys('will.i.am@mail.co')
+username_field.send_keys(EMAIL)
 
 # Ahora presiona el botón de tipo 'submit' y que tiene el texto 'Continue':
 submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text()='Continue']")
@@ -40,7 +52,7 @@ time.sleep(2)
 
 # Encuentra el input que tiene name "password" y escribe esta cadena: "12345678":
 password_field = driver.find_element(By.NAME, 'password')
-password_field.send_keys('12345678')
+password_field.send_keys(PASSWORD)
 
 password_field.send_keys(Keys.RETURN)
 
