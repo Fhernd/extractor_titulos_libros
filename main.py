@@ -66,28 +66,25 @@ time.sleep(1)
 btn_dismiss = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.btn-small")
 btn_dismiss.click()
 
-time.sleep(3)
+time.sleep(1)
 
 # Encuentra con un selector CSS button.-my-1:
 btn_next = driver.find_element(By.CSS_SELECTOR, "button.-my-1")
 btn_next.click()
 
+time.sleep(1)
+
+# Encontrar el textarea con el ID "prompt-textarea":
+prompt_textarea = driver.find_element(By.ID, "prompt-textarea")
+
+# Escribir el siguiente texto:
+prompt = """En el siguiente texto encuentra los títulos de libros: $$$ FdB 3x08 | Cerramos los episodios dedicados al contexto y la vida de Immanuel Kant con la última etapa de su vida. Es precisamente a partir de los años 80 cuando verán la luz sus trabajos más influyentes. Nos encontramos entonces con un hombre sencillo pero que detestaba las servidumbres, y que tuvo que afrontar serias advertencias por la publicación de La religión dentro de los límites de la mera razón (1793). Celebramos, pues, el Día de la Filosofía con un homenaje a un filósofo que dignificó la actividad con su legado.   "Un libro en el bolsillo" lo dedicamos al último ensayo de Miquel Seguró: Vulnerabilidad, un texto que aborda su dimensión íntima y colectiva (el Pathos y  el Ethos) a partir de la vivencia intelectual de René Descartes y su duda como experiencia metafísica. ❗  FILOSOFÍA DE BOLSILLO sólo es y será posible gracias a ti. Hazte mecenas en https://www.filosofiadebolsillo.com/patreon y accede a este y otros EPISODIOS COMPLETOS y a tus recompensas. Si quieres apoyar el proyecto y tienes cualquier duda, escribe a correo@filosofiadebolsillo.com  ---   Send in a voice message: https://podcasters.spotify.com/pod/show/diego-civilotti/message $$$ El formato de la salida debe ser el siguiente: Autor - Título del libro Por ejemplo: 1. Immanuel Kant - Crítica de la razón pura 2. Immanuel Kant - Crítica de la razón práctica 3. Immanuel Kant - Crítica del juicio
+"""
+
+prompt_textarea.send_keys(prompt)
+
+# Presionar la tecla Return:
+prompt_textarea.send_keys(Keys.RETURN)
+
+
 time.sleep(300)
-
-# # Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
-# btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
-# btn_next.click()
-
-# time.sleep(1)
-
-# # Encuentra el botón con la mismas clases:
-# btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
-# btn_next.click()
-
-# time.sleep(200)
-
-# # Encuentra el botón con las clases "btn relative btn-neutral ml-auto" pero usando un selector CSS:
-# btn_next = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.ml-auto")
-# btn_next.click()
-
-# time.sleep(200)
