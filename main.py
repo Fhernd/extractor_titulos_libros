@@ -45,7 +45,7 @@ submit_button = driver.find_element(By.XPATH, "//button[@type='submit' and text(
 submit_button.click()
 
 # Espera 3 segundos:
-time.sleep(2)
+time.sleep(1)
 
 # Encuentra el input que tiene name "password" y escribe esta cadena: "12345678":
 password_field = driver.find_element(By.NAME, 'password')
@@ -53,18 +53,24 @@ password_field.send_keys(PASSWORD)
 
 password_field.send_keys(Keys.RETURN)
 
-time.sleep(3)
+time.sleep(1)
 
 
 # Encuentre el segundo button que tiene estas clases "btn relative btn-primary", se debe usar selectores CSS:
 btn_okay = driver.find_elements(By.CSS_SELECTOR, "button.btn.relative.btn-primary")
 btn_okay[1].click()
 
-time.sleep(3)
+time.sleep(1)
 
 # Encuentra el button con las clases "btn relative btn-neutral btn-small" y haz click en él:
 btn_dismiss = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.btn-small")
 btn_dismiss.click()
+
+time.sleep(3)
+
+# Encuentra con un selector CSS button.-my-1:
+btn_next = driver.find_element(By.CSS_SELECTOR, "button.-my-1")
+btn_next.click()
 
 time.sleep(300)
 
