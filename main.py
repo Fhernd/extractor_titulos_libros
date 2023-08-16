@@ -62,7 +62,11 @@ btn_okay[1].click()
 
 time.sleep(3)
 
-# 
+# Encuentra el button con las clases "btn relative btn-neutral btn-small" y haz click en él:
+btn_dismiss = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.btn-small")
+btn_dismiss.click()
+
+time.sleep(300)
 
 # # Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
 # btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
