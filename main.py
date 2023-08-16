@@ -14,9 +14,6 @@ load_dotenv()
 EMAIL = os.environ.get('EMAIL')
 PASSWORD = os.environ.get('PASSWORD')
 
-print(EMAIL)
-print(PASSWORD)
-
 driver = webdriver.Chrome()
 
 driver.get('https://chat.openai.com/auth/login')
@@ -56,7 +53,22 @@ password_field.send_keys(PASSWORD)
 
 password_field.send_keys(Keys.RETURN)
 
-time.sleep(2)
+time.sleep(7)
 
 
-time.sleep(100)
+# Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
+btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+btn_next.click()
+
+time.sleep(1)
+
+# Encuentra el botón con la mismas clases:
+btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+btn_next.click()
+
+time.sleep(1)
+
+btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+btn_next.click()
+
+time.sleep(200)
