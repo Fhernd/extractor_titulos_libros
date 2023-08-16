@@ -53,7 +53,7 @@ password_field.send_keys(PASSWORD)
 
 password_field.send_keys(Keys.RETURN)
 
-time.sleep(7)
+time.sleep(4)
 
 
 # Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
@@ -66,7 +66,7 @@ time.sleep(1)
 btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
 btn_next.click()
 
-time.sleep(1)
+time.sleep(3)
 
 btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
 btn_next.click()
