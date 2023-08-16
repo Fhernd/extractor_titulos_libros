@@ -66,9 +66,10 @@ time.sleep(1)
 btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
 btn_next.click()
 
-time.sleep(3)
+time.sleep(200)
 
-btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+# Encuentra el botón con las clases "btn relative btn-neutral ml-auto" pero usando un selector CSS:
+btn_next = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.ml-auto")
 btn_next.click()
 
 time.sleep(200)
