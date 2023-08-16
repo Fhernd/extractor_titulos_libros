@@ -53,23 +53,31 @@ password_field.send_keys(PASSWORD)
 
 password_field.send_keys(Keys.RETURN)
 
-time.sleep(4)
+time.sleep(3)
 
 
-# Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
-btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
-btn_next.click()
+# Encuentre el segundo button que tiene estas clases "btn relative btn-primary", se debe usar selectores CSS:
+btn_okay = driver.find_elements(By.CSS_SELECTOR, "button.btn.relative.btn-primary")
+btn_okay[1].click()
 
-time.sleep(1)
+time.sleep(3)
 
-# Encuentra el botón con la mismas clases:
-btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
-btn_next.click()
+# 
 
-time.sleep(200)
+# # Encuentre un botón que tenga las clases "btn relative btn-neutral ml-auto" y haz click en él:
+# btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+# btn_next.click()
 
-# Encuentra el botón con las clases "btn relative btn-neutral ml-auto" pero usando un selector CSS:
-btn_next = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.ml-auto")
-btn_next.click()
+# time.sleep(1)
 
-time.sleep(200)
+# # Encuentra el botón con la mismas clases:
+# btn_next = driver.find_element(By.XPATH, "//button[contains(@class, 'btn relative btn-neutral ml-auto')]")
+# btn_next.click()
+
+# time.sleep(200)
+
+# # Encuentra el botón con las clases "btn relative btn-neutral ml-auto" pero usando un selector CSS:
+# btn_next = driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.ml-auto")
+# btn_next.click()
+
+# time.sleep(200)
