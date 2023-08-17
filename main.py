@@ -167,6 +167,25 @@ def conectar_bd(nombre_archivo):
     return conn, cursor
 
 
+def obtener_episodios(conexion):
+    """
+    Obtiene los episodios de la base de datos.
+
+    Args:
+        conexion (sqlite3.Connection): Conexión a la base de datos.
+
+    Returns:
+        episodios (list): Lista de episodios.
+    """
+    cursor = conexion.cursor()
+
+    cursor.execute("SELECT * FROM episodios")
+
+    episodios = cursor.fetchall()
+
+    return episodios
+
+
 EMAIL, PASSWORD = obtener_credenciales()
 
 driver = generar_driver()
