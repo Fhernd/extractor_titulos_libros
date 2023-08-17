@@ -161,10 +161,9 @@ def conectar_bd(nombre_archivo):
         conn (sqlite3.Connection): Conexión a la base de datos.
         cursor (sqlite3.Cursor): Cursor de la base de datos.
     """
-    conn = sqlite3.connect(nombre_archivo)
-    cursor = conn.cursor()
+    conexion = sqlite3.connect(nombre_archivo)
 
-    return conn, cursor
+    return conexion
 
 
 def obtener_episodios(conexion):
@@ -179,7 +178,7 @@ def obtener_episodios(conexion):
     """
     cursor = conexion.cursor()
 
-    cursor.execute("SELECT * FROM episodios")
+    cursor.execute("SELECT * FROM episodio")
 
     episodios = cursor.fetchall()
 
@@ -188,6 +187,11 @@ def obtener_episodios(conexion):
 
 
 def main():
+    conexion = conectar_bd('filosofía_bolsillo_episodios.db')
+    episodios = obtener_episodios(conexion)
+
+    print('episodios: ', len(episodios))
+
     EMAIL, PASSWORD = obtener_credenciales()
 
     driver = generar_driver()
