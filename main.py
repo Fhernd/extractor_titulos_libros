@@ -253,6 +253,8 @@ def main():
         print('ID del episodio: ', episodio.song_id)
         descripcion = episodio.description
 
+        print('descripcion: ', descripcion)
+
         resultado = hacer_prompt(driver, descripcion)
 
         if len(resultado):
