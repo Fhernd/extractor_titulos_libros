@@ -25,11 +25,21 @@ def obtener_credenciales():
     return EMAIL, PASSWORD
 
 
+def generar_driver():
+    """
+    Genera un driver de Selenium.
+
+    Returns:
+        driver (selenium.webdriver.chrome.webdriver.WebDriver): Driver de Selenium.
+    """
+    driver = webdriver.Chrome()
+
+    return driver
 
 
 EMAIL, PASSWORD = obtener_credenciales()
 
-driver = webdriver.Chrome()
+driver = generar_driver()
 
 driver.get('https://chat.openai.com/auth/login')
 
