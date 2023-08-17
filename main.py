@@ -200,6 +200,17 @@ def main():
 
     login(driver, EMAIL, PASSWORD)
 
+    for episodio in episodios:
+        print('episodio: ', episodio[0])
+        descripcion = episodio[1]
+
+        resultado = hacer_prompt(driver, descripcion)
+
+        if len(resultado):
+            print('resultado: ', resultado)
+
+        time.sleep(5)
+
     time.sleep(1000)
 
 
