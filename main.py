@@ -72,12 +72,12 @@ def obtener_credenciales():
 
 def generar_driver():
     """
-    Genera un driver de Selenium.
+    Genera un driver de Selenium para Firefox.
 
     Returns:
-        driver (selenium.webdriver.chrome.webdriver.WebDriver): Driver de Selenium.
+        driver (selenium.webdriver.firefox.webdriver.WebDriver): Driver de Selenium para Firefox.
     """
-    driver = webdriver.Chrome()
+    driver = webdriver.Firefox()
 
     return driver
 
@@ -127,7 +127,7 @@ def login(driver, email, password):
 
     password_field.send_keys(Keys.RETURN)
 
-    time.sleep(1)
+    time.sleep(3)
 
 
     # Encuentre el segundo button que tiene estas clases "btn relative btn-primary", se debe usar selectores CSS:
@@ -173,8 +173,11 @@ def hacer_prompt(driver, descripcion):
     # Verificar si existe un elemento con la clase "text-2xl":
     while True:
         try:
-            driver.find_element(By.CLASS_NAME, "text-2xl")
-        except:
+            # Busca el button con clases "btn relative btn-neutral whitespace-nowrap border-0 md:border":
+            driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.whitespace-nowrap.border-0.md:border")
+        except Exception as e:
+            print('Fallo al encontrar text-2x1:')
+            print(e)
             break
 
     try:
