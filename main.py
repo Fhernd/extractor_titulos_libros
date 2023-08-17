@@ -9,10 +9,25 @@ from selenium.webdriver.common.by import By
 
 from dotenv import load_dotenv
 
-load_dotenv()
+def obtener_credenciales():
+    """
+    Obtiene las credenciales de un archivo .env.
 
-EMAIL = os.environ.get('EMAIL')
-PASSWORD = os.environ.get('PASSWORD')
+    Returns:
+        EMAIL (str): Email de la cuenta de OpenAI.
+        PASSWORD (str): Contraseña de la cuenta de OpenAI.
+    """
+    load_dotenv()
+
+    EMAIL = os.environ.get('EMAIL')
+    PASSWORD = os.environ.get('PASSWORD')
+
+    return EMAIL, PASSWORD
+
+
+
+
+EMAIL, PASSWORD = obtener_credenciales()
 
 driver = webdriver.Chrome()
 
