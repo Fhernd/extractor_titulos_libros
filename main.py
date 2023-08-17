@@ -250,8 +250,8 @@ def main():
     login(driver, EMAIL, PASSWORD)
 
     for episodio in episodios:
-        print('episodio: ', episodio[0])
-        descripcion = episodio[1]
+        print('ID del episodio: ', episodio.song_id)
+        descripcion = episodio.description
 
         resultado = hacer_prompt(driver, descripcion)
 
