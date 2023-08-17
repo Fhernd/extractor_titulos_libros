@@ -86,5 +86,15 @@ prompt_textarea.send_keys(prompt)
 # Presionar la tecla Return:
 prompt_textarea.send_keys(Keys.RETURN)
 
+time.sleep(5)
 
-time.sleep(300)
+# Verificar si existe un elemento con la clase "text-2xl":
+while True:
+    try:
+        driver.find_element(By.CLASS_NAME, "text-2xl")
+    except:
+        break
+
+
+
+time.sleep(1000)
