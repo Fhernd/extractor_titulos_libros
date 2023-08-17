@@ -95,9 +95,12 @@ while True:
     except:
         break
 
-# Extraer el elemento que tiene las siguientes clases "markdown prose w-full break-words dark:prose-invert light":
-output = driver.find_element(By.CLASS_NAME, "markdown.prose.w-full.break-words.dark\:prose-invert.light")
+# Extraer el último elemento que tiene las siguientes clases "markdown prose w-full break-words dark:prose-invert light":
+output = driver.find_elements(By.CSS_SELECTOR, "div.markdown.prose.w-full.break-words.dark\:prose-invert.light")[-1]
 
-print(output)
+if output:
+    # Extrae el texto de cada uno de los elementos li que hay ahí dentro:
+    for li in output.find_elements(By.TAG_NAME, "li"):
+        print('libro: ', li.text)
 
 time.sleep(1000)
