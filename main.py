@@ -32,6 +32,8 @@ class Episodio:
         self.release_date = release_date
         self.name = name
         self.description = description
+        self.resultado = None
+        self.libros = None
     
     def __str__(self):
         """
