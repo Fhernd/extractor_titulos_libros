@@ -224,10 +224,15 @@ def obtener_episodios(conexion):
 
     cursor.execute("SELECT * FROM episodio")
 
-    episodios = cursor.fetchall()
+    registros = cursor.fetchall()
+
+    episodios = []
+
+    for r in registros:
+        episodio = Episodio(r[0], r[1], r[2], r[3], r[4])
+        episodios.append(episodio)
 
     return episodios
-
 
 
 def main():
