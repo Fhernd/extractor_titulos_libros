@@ -95,6 +95,9 @@ while True:
     except:
         break
 
+# Extraer el elemento que tiene las siguientes clases "markdown prose w-full break-words dark:prose-invert light":
+output = driver.find_element(By.CLASS_NAME, "markdown.prose.w-full.break-words.dark\:prose-invert.light")
 
+print(output)
 
 time.sleep(1000)
