@@ -168,30 +168,29 @@ def hacer_prompt(driver, descripcion):
     # Presionar la tecla Return:
     prompt_textarea.send_keys(Keys.RETURN)
 
-    time.sleep(5)
+    time.sleep(10)
 
     # Verificar si existe un elemento con la clase "text-2xl":
-    while True:
-        try:
-            # Busca el button con clases "btn relative btn-neutral whitespace-nowrap border-0 md:border":
-            driver.find_element(By.CSS_SELECTOR, "button.btn.relative.btn-neutral.whitespace-nowrap.border-0.md:border")
-        except Exception as e:
-            print('Fallo al encontrar text-2x1:')
-            print(e)
-            break
+    while "Stop generating" in driver.page_source:
+        # Aquí puedes agregar cualquier acción que desees realizar mientras el texto esté presente
+        # Por ejemplo, esperar un tiempo antes de verificar nuevamente
+        print('Stop generating...')
+        time.sleep(1)  # espera 1 segundo
 
     try:
         # Extraer el último elemento que tiene las siguientes clases "markdown prose w-full break-words dark:prose-invert light":
         output = driver.find_elements(By.CSS_SELECTOR, "div.markdown.prose.w-full.break-words.dark\:prose-invert.light")[-1]
 
+        libros = []
+        
         if output:
             # Extrae el texto de cada uno de los elementos li que hay ahí dentro:
             libros = []
             for li in output.find_elements(By.TAG_NAME, "li"):
                 print('libro: ', li.text)
                 libros.append(li.text)
-        else:
-            return []
+        
+        return libros
     except Exception as e:
         print('Error: ', e)
         return []
