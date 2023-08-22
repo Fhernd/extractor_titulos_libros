@@ -273,12 +273,21 @@ def main():
 
         print('descripcion: ', descripcion)
 
-        resultado = hacer_prompt(driver, descripcion)
+        resultado, libros = hacer_prompt(driver, descripcion)
 
-        if len(resultado):
+        if len(libros):
+            print('*' * 80)
             print('resultado: ', resultado)
+            print('Cantidad de libros: ', len(libros))
+            print('libros: ', libros)
 
             episodio.resultado = resultado
+            episodio.libros = '#'.join(libros)
+
+            actualizar_episodio(conexion, episodio)
+            print('Episodio actualizado')
+            print('*' * 80)
+            print()
 
         time.sleep(5)
 
