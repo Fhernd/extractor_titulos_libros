@@ -238,7 +238,6 @@ def obtener_episodios(conexion):
 
     return episodios
 
-
 def actualizar_episodio(conexion, episodio):
     """
     Actualiza un episodio en la base de datos.
@@ -252,6 +251,30 @@ def actualizar_episodio(conexion, episodio):
     cursor.execute("UPDATE episodio SET respuesta = ?, libros = ? WHERE song_id = ?", (episodio.respuesta, episodio.libros, episodio.song_id))
 
     conexion.commit()
+
+def guardar_libros(conexion):
+    """
+    Guarda los libros en un archivo de texto.
+
+    Args:
+        conexion (sqlite3.Connection): Conexión a la base de datos.
+    """
+    cursor = conexion.cursor()
+
+    cursor.execute("SELECT * FROM episodio WHERE respuesta IS NOT NULL AND libros IS NOT NULL")
+
+    registros = cursor.fetchall()
+
+    libros = []
+
+    for r in registros:
+        libros.extend(r[5].split('#'))
+
+    libros = list(set(libros))
+
+    with open('libros.txt', 'w') as f:
+        f.write('\n'.join(libros))
+
 
 def main():
     conexion = conectar_bd('filosofía_bolsillo_episodios.db')
