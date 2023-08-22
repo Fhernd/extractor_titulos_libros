@@ -276,6 +276,12 @@ def guardar_libros(conexion):
         f.write('\n'.join(libros))
 
 
+def main_generar_archivo_texto():
+    conexion = conectar_bd('filosofía_bolsillo_episodios.db')
+
+    guardar_libros(conexion)
+
+
 def main():
     conexion = conectar_bd('filosofía_bolsillo_episodios.db')
     episodios = obtener_episodios(conexion)
