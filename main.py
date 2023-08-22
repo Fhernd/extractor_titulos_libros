@@ -189,11 +189,13 @@ def hacer_prompt(driver, descripcion):
             for li in output.find_elements(By.TAG_NAME, "li"):
                 print('libro: ', li.text)
                 libros.append(li.text)
+            
+            resultado = output.text
         
-        return libros
+        return resultado, libros
     except Exception as e:
         print('Error: ', e)
-        return []
+        return None, []
 
 
 def conectar_bd(nombre_archivo):
@@ -275,6 +277,8 @@ def main():
 
         if len(resultado):
             print('resultado: ', resultado)
+
+            episodio.resultado = resultado
 
         time.sleep(5)
 
