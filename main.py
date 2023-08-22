@@ -237,6 +237,20 @@ def obtener_episodios(conexion):
     return episodios
 
 
+def actualizar_episodio(conexion, episodio):
+    """
+    Actualiza un episodio en la base de datos.
+
+    Args:
+        conexion (sqlite3.Connection): Conexión a la base de datos.
+        episodio (Episodio): Episodio a actualizar.
+    """
+    cursor = conexion.cursor()
+
+    cursor.execute("UPDATE episodio SET resultado = ?, libros = ? WHERE song_id = ?", (episodio.resultado, episodio.libros, episodio.song_id))
+
+    conexion.commit()
+
 def main():
     conexion = conectar_bd('filosofía_bolsillo_episodios.db')
     episodios = obtener_episodios(conexion)
