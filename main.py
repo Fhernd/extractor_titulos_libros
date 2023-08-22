@@ -32,7 +32,7 @@ class Episodio:
         self.release_date = release_date
         self.name = name
         self.description = description
-        self.resultado = None
+        self.respuesta = None
         self.libros = None
     
     def __str__(self):
@@ -249,7 +249,7 @@ def actualizar_episodio(conexion, episodio):
     """
     cursor = conexion.cursor()
 
-    cursor.execute("UPDATE episodio SET resultado = ?, libros = ? WHERE song_id = ?", (episodio.resultado, episodio.libros, episodio.song_id))
+    cursor.execute("UPDATE episodio SET respuesta = ?, libros = ? WHERE song_id = ?", (episodio.respuesta, episodio.libros, episodio.song_id))
 
     conexion.commit()
 
@@ -281,7 +281,7 @@ def main():
             print('Cantidad de libros: ', len(libros))
             print('libros: ', libros)
 
-            episodio.resultado = resultado
+            episodio.respuesta = resultado
             episodio.libros = '#'.join(libros)
 
             actualizar_episodio(conexion, episodio)
