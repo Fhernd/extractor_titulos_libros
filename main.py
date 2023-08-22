@@ -272,7 +272,7 @@ def guardar_libros(conexion):
 
     libros = list(set(libros))
 
-    with open('libros.txt', 'w') as f:
+    with open('libros.txt', 'w', encoding='utf8') as f:
         f.write('\n'.join(libros))
 
 
@@ -324,4 +324,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_generar_archivo_texto()
